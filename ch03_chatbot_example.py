@@ -114,8 +114,6 @@ def generate_response(messages):
         max_tokens=500)
     return result.choices[0].message.content
 
-st.image('images/ask_me_chatbot.png')
-
 if os.path.exists(image_path):
     # 이미지가 존재하면 표시
     st.image(image_path)
@@ -144,3 +142,10 @@ if st.session_state['generated']:
     for i in reversed(range(len(st.session_state['generated']))):
         message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
         message(st.session_state['generated'][i], key=str(i))
+
+
+try:
+    st.image('images/ask_me_chatbot.png')
+except MediaFileStorageError as e:
+    st.error("이미지 로드에 실패했습니다. 이미지 파일 경로와 파일명을 확인해주세요.")
+    st.error(f"Error details: {e}")
