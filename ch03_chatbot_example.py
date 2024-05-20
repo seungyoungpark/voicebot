@@ -137,7 +137,7 @@ if st.session_state['generated']:
         message(st.session_state['generated'][i], key=str(i))
 
 # Define the image path
-image_path = 'images/ask_me_chatbot.png'
+image_path = 'images/ask_me_chatbot.PNG'
 
 # Add robust image loading with error handling
 try:
