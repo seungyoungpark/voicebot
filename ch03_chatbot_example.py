@@ -143,9 +143,15 @@ if st.session_state['generated']:
         message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
         message(st.session_state['generated'][i], key=str(i))
 
+# Define the image path
+image_path = 'images/ask_me_chatbot.png'
 
+# Add robust image loading with error handling
 try:
-    st.image('images/ask_me_chatbot.png')
+    if os.path.exists(image_path):
+        st.image(image_path)
+    else:
+        st.error(f"이미지 파일 '{image_path}'이(가) 존재하지 않습니다.")
 except MediaFileStorageError as e:
     st.error("이미지 로드에 실패했습니다. 이미지 파일 경로와 파일명을 확인해주세요.")
     st.error(f"Error details: {e}")
