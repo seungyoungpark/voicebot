@@ -8,7 +8,7 @@ import openai
 import streamlit as st
 from streamlit_chat import message
 
-client = openai.OpenAI(api_key = "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")
+client = openai.OpenAI(api_key = "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")
 
 def get_embedding(text):
     response = client.embeddings.create(
