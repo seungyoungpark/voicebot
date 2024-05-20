@@ -113,13 +113,6 @@ def generate_response(messages):
         temperature=0.4,
         max_tokens=500)
     return result.choices[0].message.content
-
-if os.path.exists(image_path):
-    # 이미지가 존재하면 표시
-    st.image(image_path)
-else:
-    # 이미지가 존재하지 않으면 오류 메시지 표시
-    st.error(f"이미지를 찾을 수 없습니다: {image_path}")
     
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
